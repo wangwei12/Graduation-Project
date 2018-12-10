@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from './views/home'
+// import home from './views/home'
 import article from './views/article'
 import theme from './views/theme'
-Vue.use( Router )
+import homes from './views/homes';
+import second from './views/second';
+
+Vue.use(Router);
+
 const router = new Router( {
 	mode: 'hash',
 	routes: [
 		{
 			path: '/',
-			component: home,
-			name: 'home'
+			component: homes,
+			name: 'homes'
 		},
 		{
 			path: '/article',
@@ -25,6 +29,12 @@ const router = new Router( {
 		{
 			path: '*',
 			redirect: '/'
+		},
+		{
+			path:'/second',
+			component: {
+				second: second
+			}
 		}
 	]
 } )

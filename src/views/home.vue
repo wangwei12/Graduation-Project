@@ -25,6 +25,7 @@
 	<back-scroll :scroller="scroller" :flag="circle"></back-scroll>
 </div>
 </template>
+
 <script>
 import api from './../api/index'
 import {

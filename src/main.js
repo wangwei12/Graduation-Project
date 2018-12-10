@@ -1,16 +1,21 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router'
-import App from './App'
-import router from './router'
-import backScroll from './components/backScroll'
-import swipe from './components/swipe/swipe.vue'
-import infinite from './components/infiniteScroll'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import App from './App';
+import router from './router';
+import backScroll from './components/backScroll';
+import swipe from './components/swipe/swipe.vue';
+import infinite from './components/infiniteScroll';
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
 Vue.use( Vuex )
-Vue.use( VueRouter )
+Vue.use( VueRouter );
 Vue.component( backScroll.name, backScroll )
 Vue.component( swipe.name, swipe )
 Vue.component( infinite.name, infinite )
+
 const store = new Vuex.Store( {
 	state: {
 		num: 1,

@@ -29,6 +29,13 @@
 			<router-view class="app-view" :class="{'app-view-hidden':docked}"></router-view>
 		</keep-alive>
 	</transition>
+
+	<van-tabbar v-model="active">
+		<van-tabbar-item icon="shop" dot to="homes">首页</van-tabbar-item>
+		<van-tabbar-item icon="chat" >日记</van-tabbar-item>
+		<van-tabbar-item icon="records" >发现</van-tabbar-item>
+		<van-tabbar-item icon="gold-coin" >我</van-tabbar-item>
+	</van-tabbar>
 </div>
 </template>
 
@@ -36,7 +43,8 @@
 	import {
 		mapState
 	} from 'vuex'
-	import api from './api/index'
+	import api from './api/index';
+
 	export default {
 		computed: mapState({
 			circle: state => state.circleFlag,
@@ -55,7 +63,8 @@
 				timer:'',
 				open: false,
 				docked: false,
-				transitionName: 'slide-left'
+				transitionName: 'slide-fade',
+				active: 0
 			}
 		},
 		watch: {
@@ -73,10 +82,15 @@
 			}
 		},
 		methods: {
+			abc(){
+				this.$router.push({
+					path: 'second'
+				})
+			},
 			back(n) {
 				if (n) {
 					this.$router.push({
-						path: 'home'
+						path: 'homes'
 					});
 				} else {
 					window.history.back()
